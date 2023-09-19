@@ -18,16 +18,19 @@ class gestureButton extends StatefulWidget {
   String ButtonTitle;
   Color bgrguttoncolo;
   Color textbuttoncolor;
-  var index;
+  int index;
   @override
   State<gestureButton> createState() => _gestureButtonState();
+  
 }
 
 class _gestureButtonState extends State<gestureButton> {
+  int? Index;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
+        Index =widget.index;
         showModalBottomSheet(
           isScrollControlled: true,
             shape: const RoundedRectangleBorder(
@@ -49,13 +52,13 @@ class _gestureButtonState extends State<gestureButton> {
                                 GestureDetector(
                                   onTap: () {
                                     setState(() {
-                                      widget.index = 0;
+                                      Index = 0;
                                     });
                                   },
                                   child: Container(
                                     child: AnimatedDefaultTextStyle(
                                       style: TextStyle(
-                                        color: widget.index == 0
+                                        color: Index == 0
                                             ? Primarycolor
                                             : Colors.black,
                                       ),
@@ -69,14 +72,14 @@ class _gestureButtonState extends State<gestureButton> {
                                 GestureDetector(
                                   onTap: () {
                                     setState(() {
-                                      widget.index = 1;
+                                      Index = 1;
                                       
                                     });
                                   },
                                   child: Container(
                                     child: AnimatedDefaultTextStyle(
                                       style: TextStyle(
-                                        color: widget.index == 1
+                                        color: Index == 1
                                             ? Primarycolor
                                             : Colors.black,
                                       ),
@@ -91,14 +94,14 @@ class _gestureButtonState extends State<gestureButton> {
                             ),
                           ),
                           Container(
-                            child:widget.index==0?const RegisterPage():const LoginPage() ,
+                            child:Index==0?const RegisterPage():const LoginPage() ,
                           )
                           
                         ],
                       ),
                     );
                   },
-                )).then((value) => widget.index=widget.index);
+                )).whenComplete(() => Index=widget.index);
       },
       child: createaccountButton(
         color: widget.bgrguttoncolo,
