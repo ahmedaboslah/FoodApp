@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:foodapp/Features/Home/presentation/views/Home.dart';
+import 'package:foodapp/Features/PageView/presentation/views/pageView.dart';
 import 'package:foodapp/Features/Registration/presentation/views/helper/regfieldsListModel.dart';
 import 'package:foodapp/Features/Registration/presentation/views/widgets/Customtextfield.dart';
 import 'package:foodapp/Features/Registration/presentation/views/widgets/FieldsTextwidget.dart';
@@ -26,7 +28,14 @@ class RegisterPage extends StatelessWidget {
           padding:
               const EdgeInsets.only(left: 80, right: 80, top: 20, bottom: 5),
           child: GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>const PageViewShowed(),
+                              ),
+                            );
+              },
               child: createaccountButton(
                   color: Primarycolor,
                   text: 'Registration',

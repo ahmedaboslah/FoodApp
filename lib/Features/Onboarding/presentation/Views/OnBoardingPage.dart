@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:foodapp/Features/Home/Home.dart';
+import 'package:foodapp/Features/Home/presentation/views/Home.dart';
 import 'package:foodapp/Features/Onboarding/presentation/Views/hepler/List.dart';
 import 'package:foodapp/Features/Registration/presentation/views/Registrationpage.dart';
 
@@ -27,6 +27,7 @@ class _OnBoardingPageState extends State<OnBoardingPage>
  
   @override
   Widget build(BuildContext context) {
+    var size=MediaQuery.of(context).size;
     return Scaffold(
       body: FadeTransition(
         opacity: opacityAnimation,
@@ -35,7 +36,7 @@ class _OnBoardingPageState extends State<OnBoardingPage>
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              height: 224,
+              height: size.height*.3,
               alignment: Alignment.center,
               child: Image.asset(Onboardinglist[Index].image),
             ),

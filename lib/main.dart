@@ -10,7 +10,8 @@ class MyApp extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return  MaterialApp(
+      theme: ThemeData().copyWith(scaffoldBackgroundColor: Color(0xffF6F6F6)),
       debugShowCheckedModeBanner: false,
       home: OnBoardingPage(),
     );
