@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:foodapp/Features/Registration/presentation/views/helper/regfieldsListModel.dart';
 import 'package:foodapp/Features/Registration/presentation/views/widgets/Customtextfield.dart';
+import 'package:foodapp/Features/Registration/presentation/views/widgets/FieldsTextwidget.dart';
+import 'package:foodapp/Features/Registration/presentation/views/widgets/Googlebutton.dart';
 import 'package:foodapp/Features/Registration/presentation/views/widgets/createaccountbuton.dart';
 import 'package:foodapp/core/constant.dart';
 
@@ -11,46 +14,13 @@ class LoginPage extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 60),
-          child: Text(
-            'Full Name',
-            style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
-          ),
-        ),
-        Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 10),
-            child: CustomTextfield(
-              hinttext: 'Enter your full name',
-              obscuretext: false,
-            )),
-        const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 60),
-          child: Text(
-            'Password',
-            style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 10),
-          child: CustomTextfield(
-            hinttext: '**** *** ****',
-            obscuretext: true,
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 10),
-          child: GestureDetector(
-            onTap: () {},
-            child: Container(
-              alignment: Alignment.centerRight,
-              child: Text(
-                'Forget Password',
-                style: TextStyle(color: Primarycolor),
-              ),
-            ),
-          ),
-        ),
+        ListView.builder(
+          physics: NeverScrollableScrollPhysics(),
+          shrinkWrap: true,
+          itemCount: LoginList.length,
+          itemBuilder: (context, index) {
+          return fieldswidget(FieldName: LoginList[index].text, HintText: LoginList[index].Hinttext);
+        },),
         Padding(
           padding:
               const EdgeInsets.only(left: 80, right: 80, top: 20, bottom: 5),
@@ -73,21 +43,7 @@ class LoginPage extends StatelessWidget {
           child: GestureDetector(
             onTap: () {},
             child: Container(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.asset('assets/ic_google.png'),
-                  Center(
-                    child: Text(
-                      '\t\Login in with Google',
-                      style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black),
-                    ),
-                  ),
-                ],
-              ),
+              child: GoogleButton(ButtonText: 'Login with Google'),
               height: 50,
               decoration: BoxDecoration(
                   color: const Color.fromARGB(255, 211, 211, 210),

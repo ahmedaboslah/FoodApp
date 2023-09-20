@@ -94,7 +94,7 @@ class _gestureButtonState extends State<gestureButton> {
                             ),
                           ),
                           Container(
-                            child:Index==0?const RegisterPage():const LoginPage() ,
+                            child:Index==0? RegisterPage():const LoginPage() ,
                           )
                           
                         ],

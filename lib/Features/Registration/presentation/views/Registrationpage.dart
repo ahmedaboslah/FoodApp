@@ -53,7 +53,7 @@ class _RegistrationState extends State<Registration> {
             pageTitle1: text1,
             pageTitle2: text2,
             ButtonTitle: 'Login',
-            index: II,
+            index: 1,
             bgrguttoncolo: Color(0xffD1FAE5),
             textbuttoncolor: Primarycolor,
           ),
@@ -62,4 +62,3 @@ class _RegistrationState extends State<Registration> {
     );
   }
 }
- int II=1;
