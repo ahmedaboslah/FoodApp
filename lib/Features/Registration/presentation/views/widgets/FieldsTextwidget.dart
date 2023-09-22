@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:foodapp/Features/Registration/presentation/views/widgets/Customtextfield.dart';
 
 class fieldswidget extends StatelessWidget {
-   fieldswidget({super.key,required this.FieldName,required this.HintText});
+   fieldswidget({super.key,required this.FieldName,required this.HintText,required this.ObsecureText});
   String FieldName;
   String HintText;
+  bool ObsecureText;
   @override
   Widget build(BuildContext context) {
     return Wrap(
@@ -20,7 +21,7 @@ class fieldswidget extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 10),
               child: CustomTextfield(
                 hinttext: HintText,
-                obscuretext: false,
+                obscuretext: ObsecureText,
               )),
         ],
       

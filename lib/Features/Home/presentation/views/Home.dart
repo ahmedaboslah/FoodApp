@@ -1,42 +1,64 @@
 import 'package:flutter/material.dart';
 import 'package:foodapp/Features/Home/presentation/views/Widgets/Appbar.dart';
 import 'package:foodapp/Features/Home/presentation/views/Widgets/CustomImageOfferListView.dart';
-import 'package:foodapp/Features/Home/presentation/views/Widgets/FoodListItem.dart';
 import 'package:foodapp/Features/Home/presentation/views/Widgets/FoodListView.dart';
 import 'package:foodapp/Features/Home/presentation/views/Widgets/NewsFoodText.dart';
 import 'package:foodapp/Features/Home/presentation/views/Widgets/SearchField.dart';
+import 'package:foodapp/core/constant.dart';
+
+import 'Widgets/bokkinglistItem.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 20),
         child: CustomScrollView(
           slivers: [
             SliverToBoxAdapter(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Padding(
+                  const Padding(
                     padding: EdgeInsets.only(top: 34),
                     child: CustomAppBar(),
                   ),
-                  Padding(
+                  const Padding(
                     padding: EdgeInsets.only(top: 20, left: 30, right: 30),
                     child: CustomSearchField(),
                   ),
-                  CustomImageOfferList(),
+                  const CustomImageOfferList(),
                   Padding(
-                    padding: EdgeInsets.only(top: 40),
-                    child: NewsFoodText(),
+                    padding: const EdgeInsets.only(top: 40),
+                    child: NewsFoodText(
+                      mainText: 'Today New Arivable',
+                      detilesText: 'Best of the today food list update',
+                    ),
                   ),
-                  FoodListView(),
+                  const FoodListView(),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 40),
+                    child: NewsFoodText(
+                      mainText: 'Explore Restaurant',
+                      detilesText: 'Check your city Near by Restaurant',
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 28,
+                  ),
+               
                 ],
               ),
             ),
+            SliverList.builder(itemBuilder: (context, index) {
+              return Padding(
+                padding: const EdgeInsets.symmetric(vertical: 5),
+                child: const BookingListItem(),
+              );
+            },)
           ],
         ),
       ),

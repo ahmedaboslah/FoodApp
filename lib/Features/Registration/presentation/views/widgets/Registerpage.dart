@@ -21,7 +21,7 @@ class RegisterPage extends StatelessWidget {
           physics: NeverScrollableScrollPhysics(),
           itemCount: SignUpList.length,
           itemBuilder: (context, index) {
-            return fieldswidget(FieldName:SignUpList[index].text , HintText: SignUpList[index].Hinttext,);
+            return fieldswidget(FieldName:SignUpList[index].text , HintText: SignUpList[index].Hinttext, ObsecureText: SignUpList[index].ObsecureText,);
           },
         ),
         Padding(
@@ -53,13 +53,13 @@ class RegisterPage extends StatelessWidget {
           child: GestureDetector(
               onTap: () {},
               child: Container(
-                child: GoogleButton(
-                  ButtonText: 'Sign up With Google',
-                ),
                 height: 50,
                 decoration: BoxDecoration(
                     color: const Color.fromARGB(255, 209, 208, 208),
                     borderRadius: BorderRadius.circular(16)),
+                child: GoogleButton(
+                  ButtonText: 'Sign up With Google',
+                ),
               )),
         )
       ],

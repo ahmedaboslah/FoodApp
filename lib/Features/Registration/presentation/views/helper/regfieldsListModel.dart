@@ -1,30 +1,31 @@
 class registerationgList {
-  registerationgList({required this.text, required this.Hinttext});
+  registerationgList({required this.text, required this.Hinttext,required this.ObsecureText});
   String text;
   String Hinttext;
+  bool ObsecureText;
 }
 
 List<registerationgList> SignUpList = [
   registerationgList(
     text: 'Full Name',
-    Hinttext: 'Enter your full name',
+    Hinttext: 'Enter your full name', ObsecureText: false,
   ),
   registerationgList(
     text: 'Email address',
-    Hinttext: 'Eg email@email.com',
+    Hinttext: 'Eg email@email.com', ObsecureText: false,
   ),
   registerationgList(
     text: 'Password',
-    Hinttext: '**** *** ****',
+    Hinttext: '**** *** ****', ObsecureText: true,
   )
 ];
 List<registerationgList> LoginList = [
   registerationgList(
     text: 'Full Name',
-    Hinttext: 'Enter your full name',
+    Hinttext: 'Enter your full name', ObsecureText: false,
   ),
   registerationgList(
     text: 'Password',
-    Hinttext: '**** *** ****',
+    Hinttext: '**** *** ****', ObsecureText: true,
   )
 ];

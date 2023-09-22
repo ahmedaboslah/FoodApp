@@ -21,7 +21,7 @@ class LoginPage extends StatelessWidget {
           shrinkWrap: true,
           itemCount: LoginList.length,
           itemBuilder: (context, index) {
-          return fieldswidget(FieldName: LoginList[index].text, HintText: LoginList[index].Hinttext);
+          return fieldswidget(FieldName: LoginList[index].text, HintText: LoginList[index].Hinttext, ObsecureText: LoginList[index].ObsecureText,);
         },),
         Padding(
           padding:
