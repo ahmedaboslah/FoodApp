@@ -71,14 +71,17 @@ class _OnBoardingPageState extends State<OnBoardingPage>
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   GestureDetector(
-                    child: const Text('Skip'),
+                    child: Index==2? Text(''): const Text('Skip'),
                     onTap: () {
-                      Navigator.push(
+                      if(Index!=2){
+                        Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) => const Registration(),
                         ),
                       );
+                      }
+                      
                     },
                   ),
                   IconButton(
