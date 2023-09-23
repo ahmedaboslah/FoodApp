@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 import '../../../../../core/constant.dart';
 
 class BookingListItem extends StatelessWidget {
-  const BookingListItem({super.key});
-
+   BookingListItem({super.key,required this.buttomtext});
+String buttomtext ;
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16), color: Colors.grey),
+          borderRadius: BorderRadius.circular(16), color: Colors.white),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
         child: Row(children: [
@@ -51,9 +51,9 @@ class BookingListItem extends StatelessWidget {
                       color: Primarycolor,
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    child: const Center(
+                    child:  Center(
                       child: Text(
-                        'Book',
+                        buttomtext,
                         style: TextStyle(color: Colors.white),
                       ),
                     ),

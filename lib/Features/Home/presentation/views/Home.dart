@@ -56,7 +56,7 @@ class HomePage extends StatelessWidget {
             SliverList.builder(itemBuilder: (context, index) {
               return Padding(
                 padding: const EdgeInsets.symmetric(vertical: 5),
-                child: const BookingListItem(),
+                child:  BookingListItem(buttomtext: 'Book',),
               );
             },)
           ],

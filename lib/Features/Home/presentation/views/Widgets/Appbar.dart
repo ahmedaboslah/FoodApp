@@ -7,21 +7,29 @@ class CustomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              IconButton(onPressed: (){}, icon:const Icon(Icons.sort),),
-               Row(
-                children: [
-                 Icon(Icons.location_on,color: Primarycolor,),
-                 const Text('Agrabad 435, Chittagong')
-                ],
-              ),
-              const CircleAvatar(
-                backgroundColor: Colors.white,
-                radius: 18,
-                backgroundImage: AssetImage('assets/Ellipse 4.png'),
-              )
-            ],
-          );
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        IconButton(
+          onPressed: () {},
+          icon: const Icon(Icons.sort),
+        ),
+        Row(
+          children: [
+            Icon(
+              Icons.location_on,
+              color: Primarycolor,
+            ),
+            const Text('Agrabad 435, Chittagong')
+          ],
+        ),
+        const CircleAvatar(
+          backgroundColor: Colors.white,
+          radius: 18,
+          backgroundImage: AssetImage(
+            'assets/Ellipse 4.png',
+          ),
+        ),
+      ],
+    );
   }
 }
