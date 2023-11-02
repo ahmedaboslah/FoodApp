@@ -1,0 +1,91 @@
+import 'package:equatable/equatable.dart';
+
+class Models extends Equatable {
+    Models({
+        required this.type,
+        required this.menuItems,
+        required this.offset,
+        required this.number,
+        required this.totalMenuItems,
+        required this.processingTimeMs,
+    });
+
+    final String? type;
+    final List<MenuItem> menuItems;
+    final int? offset;
+    final int? number;
+    final int? totalMenuItems;
+    final int? processingTimeMs;
+
+    factory Models.fromJson(Map<String, dynamic> json){ 
+        return Models(
+            type: json["type"],
+            menuItems: json["menuItems"] == null ? [] : List<MenuItem>.from(json["menuItems"]!.map((x) => MenuItem.fromJson(x))),
+            offset: json["offset"],
+            number: json["number"],
+            totalMenuItems: json["totalMenuItems"],
+            processingTimeMs: json["processingTimeMs"],
+        );
+    }
+
+    @override
+    List<Object?> get props => [
+    type, menuItems, offset, number, totalMenuItems, processingTimeMs, ];
+}
+
+class MenuItem extends Equatable {
+    MenuItem({
+        required this.id,
+        required this.title,
+        required this.image,
+        required this.imageType,
+        required this.restaurantChain,
+        required this.servings,
+    });
+
+    final int? id;
+    final String? title;
+    final String? image;
+    final String? imageType;
+    final String? restaurantChain;
+    final Servings? servings;
+
+    factory MenuItem.fromJson(Map<String, dynamic> json){ 
+        return MenuItem(
+            id: json["id"],
+            title: json["title"],
+            image: json["image"],
+            imageType: json["imageType"],
+            restaurantChain: json["restaurantChain"],
+            servings: json["servings"] == null ? null : Servings.fromJson(json["servings"]),
+        );
+    }
+
+    @override
+    List<Object?> get props => [
+    id, title, image, imageType, restaurantChain, servings, ];
+}
+
+class Servings extends Equatable {
+    Servings({
+        required this.number,
+        required this.size,
+        required this.unit,
+    });
+
+    final int? number;
+    final double? size;
+    final String? unit;
+
+    factory Servings.fromJson(Map<String, dynamic> json){ 
+        return Servings(
+            number: json["number"],
+            size: json["size"],
+            unit: json["unit"],
+        );
+    }
+
+    @override
+    List<Object?> get props => [
+    number, size, unit, ];
+}

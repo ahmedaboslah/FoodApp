@@ -21,7 +21,6 @@ class gestureButton extends StatefulWidget {
   int index;
   @override
   State<gestureButton> createState() => _gestureButtonState();
-  
 }
 
 class _gestureButtonState extends State<gestureButton> {
@@ -30,9 +29,9 @@ class _gestureButtonState extends State<gestureButton> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Index =widget.index;
+        Index = widget.index;
         showModalBottomSheet(
-          isScrollControlled: true,
+            isScrollControlled: true,
             shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(32), topRight: Radius.circular(32)),
@@ -45,7 +44,8 @@ class _gestureButtonState extends State<gestureButton> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 50,horizontal: 80),
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 50, horizontal: 80),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -62,7 +62,8 @@ class _gestureButtonState extends State<gestureButton> {
                                             ? Primarycolor
                                             : Colors.black,
                                       ),
-                                      duration: const Duration(milliseconds: 100),
+                                      duration:
+                                          const Duration(milliseconds: 100),
                                       child: Text(
                                         widget.pageTitle1,
                                       ),
@@ -73,7 +74,6 @@ class _gestureButtonState extends State<gestureButton> {
                                   onTap: () {
                                     setState(() {
                                       Index = 1;
-                                      
                                     });
                                   },
                                   child: Container(
@@ -83,7 +83,8 @@ class _gestureButtonState extends State<gestureButton> {
                                             ? Primarycolor
                                             : Colors.black,
                                       ),
-                                      duration: const Duration(milliseconds: 100),
+                                      duration:
+                                          const Duration(milliseconds: 100),
                                       child: Text(
                                         widget.pageTitle2,
                                       ),
@@ -94,14 +95,13 @@ class _gestureButtonState extends State<gestureButton> {
                             ),
                           ),
                           Container(
-                            child:Index==0? RegisterPage():const LoginPage() ,
+                            child: Index == 0 ? RegisterPage() : LoginPage(),
                           )
-                          
                         ],
                       ),
                     );
                   },
-                )).whenComplete(() => Index=widget.index);
+                )).whenComplete(() => Index = widget.index);
       },
       child: createaccountButton(
         color: widget.bgrguttoncolo,

@@ -9,36 +9,46 @@ import 'package:foodapp/Features/Registration/presentation/views/widgets/createa
 import 'package:foodapp/core/constant.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
-
+  LoginPage({super.key});
+  GlobalKey<FormState> formKey = GlobalKey();
+  String? input;
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        ListView.builder(
-          physics: NeverScrollableScrollPhysics(),
-          shrinkWrap: true,
-          itemCount: LoginList.length,
-          itemBuilder: (context, index) {
-          return fieldswidget(FieldName: LoginList[index].text, HintText: LoginList[index].Hinttext, ObsecureText: LoginList[index].ObsecureText,);
-        },),
+        Form(
+          key: formKey,
+          child: ListView.builder(
+            physics: NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            itemCount: LoginList.length,
+            itemBuilder: (context, index) {
+              return fieldswidget(
+                FieldName: LoginList[index].text,
+                HintText: LoginList[index].Hinttext,
+                ObsecureText: LoginList[index].ObsecureText,
+                onchanged: (value) {},
+              );
+            },
+          ),
+        ),
         Padding(
           padding:
               const EdgeInsets.only(left: 80, right: 80, top: 20, bottom: 5),
           child: GestureDetector(
               onTap: () {
-                Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) =>const PageViewShowed(),
-                              ),
-                            );
+                if (formKey.currentState!.validate()) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const PageViewShowed(),
+                    ),
+                  );
+                }
               },
               child: createaccountButton(
-                  color: Primarycolor,
-                  text: 'Login',
-                  txtcolor: Colors.white)),
+                  color: Primarycolor, text: 'Login', txtcolor: Colors.white)),
         ),
         const Padding(
           padding: EdgeInsets.only(bottom: 5, right: 130, left: 130),

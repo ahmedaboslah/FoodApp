@@ -1,19 +1,16 @@
 import 'package:flutter/material.dart';
 
 class CustomImageOffer extends StatelessWidget {
-  CustomImageOffer({
-    super.key,
-  });
-
+  CustomImageOffer({super.key, required this.color});
+  Color color;
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return AspectRatio(
-      aspectRatio: 6.2/2.8,
+      aspectRatio: 6.2 / 2.8,
       child: Container(
         decoration: BoxDecoration(
-          gradient: const LinearGradient(
-              colors: [Color(0xffFF9F06), Color(0xffFFE1B4)]),
+          gradient: LinearGradient(colors: [color, Color(0xffFFE1B4)]),
           borderRadius: BorderRadius.circular(38),
         ),
         child: Row(

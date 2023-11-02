@@ -1,26 +1,27 @@
 import 'package:flutter/material.dart';
 
 class ContainerBackGroundImage extends StatelessWidget {
-  const ContainerBackGroundImage({super.key});
-
+  ContainerBackGroundImage({super.key, this.image});
+  String? image;
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return SizedBox(
-      height: size.height * .2,
+      height: size.height * .18,
       child: AspectRatio(
-        aspectRatio: 4.8 / 3.9,
-        child: Container(
-          decoration: const BoxDecoration(
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(6),
-              topRight: Radius.circular(6),
+          aspectRatio: 4.6 / 3.9,
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(6),
+                topRight: Radius.circular(6),
+              ),
+              image: DecorationImage(
+                image: NetworkImage(image!),
+                fit: BoxFit.cover,
+              ),
             ),
-            image: DecorationImage(
-                image: AssetImage('assets/image 3.png'), fit: BoxFit.cover),
-          ),
-        ),
-      ),
+          )),
     );
   }
 }

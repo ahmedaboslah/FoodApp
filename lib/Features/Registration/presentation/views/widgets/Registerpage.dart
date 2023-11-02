@@ -10,31 +10,41 @@ import 'package:foodapp/core/constant.dart';
 
 class RegisterPage extends StatelessWidget {
   RegisterPage({super.key});
-
+  GlobalKey<FormState> formKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        ListView.builder(
-          shrinkWrap: true,
-          physics: NeverScrollableScrollPhysics(),
-          itemCount: SignUpList.length,
-          itemBuilder: (context, index) {
-            return fieldswidget(FieldName:SignUpList[index].text , HintText: SignUpList[index].Hinttext, ObsecureText: SignUpList[index].ObsecureText,);
-          },
+        Form(
+          key: formKey,
+          child: ListView.builder(
+            shrinkWrap: true,
+            physics: NeverScrollableScrollPhysics(),
+            itemCount: SignUpList.length,
+            itemBuilder: (context, index) {
+              return fieldswidget(
+                FieldName: SignUpList[index].text,
+                HintText: SignUpList[index].Hinttext,
+                ObsecureText: SignUpList[index].ObsecureText,
+                onchanged: (String) {},
+              );
+            },
+          ),
         ),
         Padding(
           padding:
               const EdgeInsets.only(left: 80, right: 80, top: 20, bottom: 5),
           child: GestureDetector(
               onTap: () {
-                Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) =>const PageViewShowed(),
-                              ),
-                            );
+                if (formKey.currentState!.validate()) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const PageViewShowed(),
+                    ),
+                  );
+                }
               },
               child: createaccountButton(
                   color: Primarycolor,
@@ -66,4 +76,3 @@ class RegisterPage extends StatelessWidget {
     );
   }
 }
-

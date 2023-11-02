@@ -1,26 +1,26 @@
 import 'package:flutter/material.dart';
 
 class NewsFoodText extends StatelessWidget {
-NewsFoodText({super.key,required this.mainText , required this.detilesText});
-  String mainText ;
-String detilesText ;
+  NewsFoodText({super.key, required this.mainText, required this.detilesText});
+  String mainText;
+  String detilesText;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-       Column(
+        Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-             mainText,
+              mainText,
               style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
             ),
-             Padding(
+            Padding(
               padding: const EdgeInsets.only(top: 5),
               child: Text(
-               detilesText,
+                detilesText,
                 style: const TextStyle(
                   fontSize: 12,
                   fontWeight: FontWeight.w500,

@@ -24,10 +24,10 @@ class _OnBoardingPageState extends State<OnBoardingPage>
     opacityAnimation = Tween<double>(begin: 0, end: 1).animate(controller);
     controller.forward();
   }
- 
+
   @override
   Widget build(BuildContext context) {
-    var size=MediaQuery.of(context).size;
+    var size = MediaQuery.of(context).size;
     return Scaffold(
       body: FadeTransition(
         opacity: opacityAnimation,
@@ -36,7 +36,7 @@ class _OnBoardingPageState extends State<OnBoardingPage>
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              height: size.height*.3,
+              height: size.height * .3,
               alignment: Alignment.center,
               child: Image.asset(Onboardinglist[Index].image),
             ),
@@ -45,8 +45,7 @@ class _OnBoardingPageState extends State<OnBoardingPage>
             ),
             Text(
               Onboardinglist[Index].text1,
-              style: const TextStyle(
-                  fontSize: 24, fontWeight: FontWeight.w600),
+              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
             ),
             const SizedBox(
               height: 25,
@@ -55,7 +54,7 @@ class _OnBoardingPageState extends State<OnBoardingPage>
               padding: const EdgeInsets.symmetric(horizontal: 64),
               child: Text(
                 Onboardinglist[Index].text2,
-                style: const TextStyle(   
+                style: const TextStyle(
                   fontSize: 12,
                   overflow: TextOverflow.fade,
                 ),
@@ -71,17 +70,16 @@ class _OnBoardingPageState extends State<OnBoardingPage>
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   GestureDetector(
-                    child: Index==2? Text(''): const Text('Skip'),
+                    child: Index == 2 ? Text('') : const Text('Skip'),
                     onTap: () {
-                      if(Index!=2){
+                      if (Index != 2) {
                         Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const Registration(),
-                        ),
-                      );
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const Registration(),
+                          ),
+                        );
                       }
-                      
                     },
                   ),
                   IconButton(
@@ -91,7 +89,7 @@ class _OnBoardingPageState extends State<OnBoardingPage>
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) =>const Registration(),
+                                builder: (context) => const Registration(),
                               ),
                             );
                           } else {
@@ -101,7 +99,10 @@ class _OnBoardingPageState extends State<OnBoardingPage>
                           }
                         });
                       },
-                      icon: const Icon(Icons.arrow_forward,color: Colors.green,))
+                      icon: const Icon(
+                        Icons.arrow_forward,
+                        color: Colors.green,
+                      ))
                 ],
               ),
             )

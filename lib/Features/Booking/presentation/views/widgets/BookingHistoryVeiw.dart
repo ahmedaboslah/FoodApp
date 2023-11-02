@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:foodapp/Features/Booking/presentation/views/BookingPage.dart';
-import 'package:foodapp/Features/Registration/presentation/views/helper/regconst.dart';
-
+import 'package:foodapp/Features/Booking/presentation/views/widgets/BookMoreText.dart';
+import 'package:foodapp/Features/Booking/presentation/views/widgets/CheckButton.dart';
 import 'package:foodapp/core/constant.dart';
-
-import '../../../../Home/presentation/views/Widgets/bokkinglistItem.dart';
 
 class BookingHistoryVeiwPage extends StatelessWidget {
   const BookingHistoryVeiwPage({super.key});
@@ -23,32 +20,23 @@ class BookingHistoryVeiwPage extends StatelessWidget {
         title: const Text('Booking hstory'),
         automaticallyImplyLeading: false,
       ),
-      body: CustomScrollView(slivers: [
-        SliverList.builder(
+      body: CustomScrollView(
+        slivers: [
+          SliverList.builder(
             itemCount: 3,
-            itemBuilder: (context, index) =>  Padding(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                  child: SizedBox(height: 80, child: GestureDetector(onTap: () {
-                     Navigator.push(context, MaterialPageRoute(builder: (context) {
-                      return BookingPage();
-                    },));
-                  },child: BookingListItem(buttomtext: 'check',))),
-                )),
-        const SliverToBoxAdapter(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(Icons.add,color: Color(0xff6B7280)),
-              Text(
-                'Booking More',
-                style: TextStyle(
-                    fontWeight: FontWeight.w500, color: Color(0xff6B7280)),
+            itemBuilder: (context, index) => const Padding(
+              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+              child: SizedBox(
+                height: 85,
+                child: CheckButton(),
               ),
-            ],
+            ),
           ),
-        ),
-      ]),
+          const SliverToBoxAdapter(
+            child: BookMoreText(),
+          ),
+        ],
+      ),
     );
   }
 }

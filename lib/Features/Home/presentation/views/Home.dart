@@ -1,16 +1,19 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:foodapp/Features/Home/presentation/views/Widgets/Appbar.dart';
 import 'package:foodapp/Features/Home/presentation/views/Widgets/CustomImageOfferListView.dart';
 import 'package:foodapp/Features/Home/presentation/views/Widgets/FoodListView.dart';
 import 'package:foodapp/Features/Home/presentation/views/Widgets/NewsFoodText.dart';
 import 'package:foodapp/Features/Home/presentation/views/Widgets/SearchField.dart';
-import 'package:foodapp/core/constant.dart';
+import 'package:foodapp/core/Api/apiservice.dart';
 
-import 'Widgets/bokkinglistItem.dart';
+
+import 'Widgets/BookingListItem.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
-
+   HomePage({super.key});
+   var res=Api(dio: Dio()).get();
+   
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,15 +33,15 @@ class HomePage extends StatelessWidget {
                     padding: EdgeInsets.only(top: 20, left: 30, right: 30),
                     child: CustomSearchField(),
                   ),
-                  const CustomImageOfferList(),
+                  CustomImageOfferList(),
                   Padding(
                     padding: const EdgeInsets.only(top: 40),
                     child: NewsFoodText(
-                      mainText: 'Today New Arivable',
+                      mainText: 'Todays New Arivable',
                       detilesText: 'Best of the today food list update',
                     ),
                   ),
-                  const FoodListView(),
+                  FoodListView(),
                   Padding(
                     padding: const EdgeInsets.only(top: 40),
                     child: NewsFoodText(
@@ -49,16 +52,21 @@ class HomePage extends StatelessWidget {
                   const SizedBox(
                     height: 28,
                   ),
-               
                 ],
               ),
             ),
-            SliverList.builder(itemBuilder: (context, index) {
-              return Padding(
-                padding: const EdgeInsets.symmetric(vertical: 5),
-                child:  BookingListItem(buttomtext: 'Book',),
-              );
-            },)
+            SliverList.builder(
+              itemCount: 6,
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 5),
+                  child: BookingListItem(
+                    buttomtext: 'Book',
+                    borderside: false,
+                  ),
+                );
+              },
+            )
           ],
         ),
       ),

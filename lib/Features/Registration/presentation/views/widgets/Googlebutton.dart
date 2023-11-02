@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 
 class GoogleButton extends StatelessWidget {
-   GoogleButton({
-    super.key,
-    required this.ButtonText
-  });
- String ButtonText;
+  GoogleButton({super.key, required this.ButtonText});
+  String ButtonText;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -16,9 +13,7 @@ class GoogleButton extends StatelessWidget {
           child: Text(
             '\t\t$ButtonText',
             style: TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.bold,
-                color: Colors.black),
+                fontSize: 14, fontWeight: FontWeight.bold, color: Colors.black),
           ),
         ),
       ],
