@@ -12,7 +12,7 @@ import 'Widgets/BookingListItem.dart';
 
 class HomePage extends StatelessWidget {
    HomePage({super.key});
-   var res=Api(dio: Dio()).get();
+   var res=ApiService(Dio()).get();
    
   @override
   Widget build(BuildContext context) {

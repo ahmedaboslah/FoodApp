@@ -16,7 +16,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData().copyWith(scaffoldBackgroundColor: Color(0xffF6F6F6)),
       debugShowCheckedModeBanner: false,
-      home: OnBoardingPage(),
+      // home: OnBoardingPage(),
+      home: HomePage(),
     );
   }
 }

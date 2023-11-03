@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:foodapp/Features/Home/presentation/views/Widgets/LocationTextDetails.dart';
 import 'package:foodapp/Features/Home/presentation/views/Widgets/containerImage.dart';
+import 'package:foodapp/Features/models.dart/Models.dart';
 
 
 
 class BestFoodListItem extends StatelessWidget {
   BestFoodListItem({
     super.key,
+    required this.Menu
   });
+MenuModel Menu;
 
   @override
   Widget build(BuildContext context) {
@@ -27,14 +30,14 @@ class BestFoodListItem extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                ContainerBackGroundImage(image: 'assets/Safe Food.png'),
+                ContainerBackGroundImage(image: Menu.image),
                 Text(
-                  '',
+                  Menu.title,
                   style: const TextStyle(
                       fontSize: 16, fontWeight: FontWeight.w600),
                 ),
                 LocationTextDetails(
-                  text: '',
+                  text: Menu.restaurantChain,
                 )
               ],
             ),
