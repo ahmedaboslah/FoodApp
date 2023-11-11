@@ -32,7 +32,7 @@ class Api {
   final Dio dio;
 Api({required this.dio});
 Future<List<MenuModel>> get()async{
- var response =await dio.get('https://api.spoonacular.com/food/menuItems/search?query=burger&number=10&apiKey=75d7064411ae42d5945d11dba67f6e35',);
+ var response =await dio.get('https://api.spoonacular.com/food/menuItems/search?query=pizza&number=10&apiKey=75d7064411ae42d5945d11dba67f6e35',);
  print(response.data);
  Map<String,dynamic> Jsondata=response.data;
  List<dynamic> Menus=Jsondata['menuItems'];

@@ -1,10 +1,10 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:foodapp/Features/Home/presentation/manager/cubit/food_list_view_cubit.dart';
+
 import 'package:foodapp/Features/Home/presentation/views/Home.dart';
 
-import 'package:foodapp/Features/Onboarding/presentation/Views/OnBoardingPage.dart';
+import 'Features/Home/presentation/manager/FoodListViewCubit.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +17,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => FoodListViewCubit(),)
+        BlocProvider(
+          create: (context) => FoodListViewCiubit()..getMenus(),
+        )
       ],
       child: MaterialApp(
         theme: ThemeData().copyWith(scaffoldBackgroundColor: Color(0xffF6F6F6)),
