@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class ContainerBackGroundImage extends StatelessWidget {
@@ -10,18 +11,7 @@ class ContainerBackGroundImage extends StatelessWidget {
       height: size.height * .18,
       child: AspectRatio(
           aspectRatio: 4.6 / 3.9,
-          child: Container(
-            decoration: BoxDecoration(
-              borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(6),
-                topRight: Radius.circular(6),
-              ),
-              image: DecorationImage(
-                image: NetworkImage(image!),
-                fit: BoxFit.cover,
-              ),
-            ),
-          )),
+          child: CachedNetworkImage(imageUrl: image! ?? 'https://cdn.pixabay.com/photo/2018/01/04/15/51/404-error-3060993_640.png')),
     );
   }
 }

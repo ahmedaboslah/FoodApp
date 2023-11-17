@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:foodapp/Features/models.dart/Models.dart';
+import 'package:foodapp/Features/models.dart/FoodModels.dart';
 
 abstract class FoodListViewState extends Equatable{
 List<Object?> get props => throw UnimplementedError();

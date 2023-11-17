@@ -25,14 +25,16 @@
 //   }
 // }
 
+import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:foodapp/Features/models.dart/Models.dart';
+import 'package:foodapp/Features/models.dart/FoodModels.dart';
+import 'package:foodapp/core/util/Failure.dart';
 
 class Api {
   final Dio dio;
 Api({required this.dio});
-Future<List<MenuModel>> get()async{
- var response =await dio.get('https://api.spoonacular.com/food/menuItems/search?query=pizza&number=10&apiKey=75d7064411ae42d5945d11dba67f6e35',);
+Future<Either<Failure,List<MenuModel>>> get()async{
+ var response =await dio.get('https://api.spoonacular.com/food/menuItems/search?query=burger&number=10&apiKey=75d7064411ae42d5945d11dba67f6e35',);
  print(response.data);
  Map<String,dynamic> Jsondata=response.data;
  List<dynamic> Menus=Jsondata['menuItems'];
@@ -41,7 +43,12 @@ Future<List<MenuModel>> get()async{
   MenuModel menu=MenuModel(image: item['image'], restaurantChain: item['restaurantChain'], title: item['title']);
  Menuitems.add(menu);
  }
- return Menuitems;
+ if(Menuitems.isNotEmpty){
+  return right(response.data);
+ }
+ else{
+  return left(Failure());
+ }
 } 
 
 

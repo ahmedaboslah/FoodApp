@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foodapp/Features/Home/presentation/views/Widgets/LocationTextDetails.dart';
 import 'package:foodapp/Features/Home/presentation/views/Widgets/containerImage.dart';
-import 'package:foodapp/Features/models.dart/Models.dart';
+import 'package:foodapp/Features/models.dart/FoodModels.dart';
 
 
 

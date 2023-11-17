@@ -30,7 +30,7 @@ class FoodListView extends StatelessWidget {
           } else if (state is FoodListFailure) {
             return Center(child:  Text(state.errMessage),);
           } else {
-            return CircularProgressIndicator();
+            return Center(child: CircularProgressIndicator());
           }
         },
       ),
