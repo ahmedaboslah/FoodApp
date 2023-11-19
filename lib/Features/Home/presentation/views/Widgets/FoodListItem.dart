@@ -32,12 +32,12 @@ MenuModel Menu;
               children: [
                 ContainerBackGroundImage(image: Menu.image),
                 Text(
-                  Menu.title,
+                  Menu.title!,
                   style: const TextStyle(
                       fontSize: 16, fontWeight: FontWeight.w600),
                 ),
                 LocationTextDetails(
-                  text: Menu.restaurantChain,
+                  text: Menu.restaurantChain!,
                 )
               ],
             ),

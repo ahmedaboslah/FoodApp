@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:foodapp/Features/Home/presentation/manager/FoodListViewState.dart';
+
+import 'package:foodapp/Features/Home/presentation/manager/MenuCubit/FoodListViewCubit.dart';
 import 'package:foodapp/Features/Home/presentation/views/Widgets/FoodListItem.dart';
-import '../../manager/FoodListViewCubit.dart';
+
+import '../../manager/MenuCubit/FoodListViewState.dart';
 
 class FoodListView extends StatelessWidget {
   FoodListView({super.key});

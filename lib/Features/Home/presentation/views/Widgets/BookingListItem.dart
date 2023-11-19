@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:foodapp/Features/Home/presentation/views/Widgets/LocationTextDetails.dart';
+import 'package:foodapp/Features/models.dart/ResturantModel.dart';
 
 import '../../../../../core/constant.dart';
 
 class BookingListItem extends StatelessWidget {
   BookingListItem(
-      {super.key, required this.buttomtext, required this.borderside});
+      {super.key, required this.buttomtext, required this.borderside,required this.resturant});
   String buttomtext;
   bool? borderside = false;
+  ResturantModel resturant;
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -47,7 +49,7 @@ class BookingListItem extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text('Ambrosia Hotel & Restaurant'),
+                       Text(resturant.Name),
                       const SizedBox(
                         height: 6,
                       ),
@@ -55,7 +57,7 @@ class BookingListItem extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           LocationTextDetails(
-                              text: 'kazi Deiry, Taiger Pass Chittagong'),
+                              text: '${resturant.Street}, ${resturant.city} ${resturant.country}'),
                           const SizedBox(
                             width: 30,
                           ),

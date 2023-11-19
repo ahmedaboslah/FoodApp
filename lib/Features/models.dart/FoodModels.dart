@@ -1,9 +1,9 @@
 import 'package:equatable/equatable.dart';
 
 class MenuModel extends Equatable {
-  final String image;
-  final String title;
-  final String restaurantChain;
+  final String? image;
+  final String? title;
+  final String? restaurantChain;
 
   MenuModel({
     required this.image,
@@ -16,8 +16,8 @@ class MenuModel extends Equatable {
   factory MenuModel.fromJson(Map<String, dynamic> jsonData) {
     return MenuModel(
       image: jsonData['image'],
-      restaurantChain: jsonData['restaurantChain'].toString(),
-      title: jsonData['title'].toString(),
+      restaurantChain: jsonData['restaurantChain'],
+      title: jsonData['title'],
     );
   }
 
@@ -32,5 +32,9 @@ class MenuModel extends Equatable {
   @override
   List<Object?> get props {
     return [image, title, restaurantChain];
+  }
+  @override
+  String toString(){
+    return '$image';
   }
 }

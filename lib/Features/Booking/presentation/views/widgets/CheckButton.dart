@@ -3,11 +3,13 @@ import 'package:foodapp/Features/Booking/presentation/views/BookingPage.dart';
 import 'package:foodapp/Features/Booking/presentation/views/widgets/BookDetails.dart';
 import 'package:foodapp/Features/Home/presentation/views/Widgets/BookingListItem.dart';
 
-class CheckButton extends StatelessWidget {
-  const CheckButton({
-    super.key,
-  });
+import '../../../../models.dart/ResturantModel.dart';
 
+class CheckButton extends StatelessWidget {
+   CheckButton({
+    super.key,required this.resturant
+  });
+ResturantModel resturant;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -23,7 +25,7 @@ class CheckButton extends StatelessWidget {
       },
       child: BookingListItem(
         buttomtext: 'check',
-        borderside: false,
+        borderside: false,resturant:resturant,
       ),
     );
   }

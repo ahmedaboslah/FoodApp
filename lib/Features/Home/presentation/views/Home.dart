@@ -1,5 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:foodapp/Features/Home/presentation/manager/cubit/resturant_model_cubit.dart';
 import 'package:foodapp/Features/Home/presentation/views/Widgets/Appbar.dart';
 import 'package:foodapp/Features/Home/presentation/views/Widgets/CustomImageOfferListView.dart';
 import 'package:foodapp/Features/Home/presentation/views/Widgets/FoodListView.dart';
@@ -7,13 +9,12 @@ import 'package:foodapp/Features/Home/presentation/views/Widgets/NewsFoodText.da
 import 'package:foodapp/Features/Home/presentation/views/Widgets/SearchField.dart';
 import 'package:foodapp/core/Api/apiservice.dart';
 
-
 import 'Widgets/BookingListItem.dart';
 
 class HomePage extends StatelessWidget {
-   HomePage({super.key});
+  HomePage({super.key});
   //  var res=Api(dio: Dio()).get();
-   
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,9 +61,20 @@ class HomePage extends StatelessWidget {
               itemBuilder: (context, index) {
                 return Padding(
                   padding: const EdgeInsets.symmetric(vertical: 5),
-                  child: BookingListItem(
-                    buttomtext: 'Book',
-                    borderside: false,
+                  child: BlocBuilder<ResturantModelCubit, ResturantModelState>(
+                    builder: (context, state) {
+                      if (state is ResturantModelSuccess) {
+                        return BookingListItem(
+                          buttomtext: 'Book',
+                          borderside: false,
+                          resturant: state.resturantModel[index],
+                        );
+                      } else {
+                        return Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      }
+                    },
                   ),
                 );
               },
@@ -73,3 +85,27 @@ class HomePage extends StatelessWidget {
     );
   }
 }
+
+// class BookingItemBlocBuilder extends StatelessWidget {
+//   const BookingItemBlocBuilder({
+//     super.key,
+//   });
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return BlocBuilder<ResturantModelCubit, ResturantModelState>(
+//       builder: (context, state) {
+//        if(state is ResturantModelSuccess){
+//          return BookingListItem(
+//           buttomtext: 'Book',
+//           borderside: false,
+//           resturant: state.resturantModel[],
+//         );
+//        }
+//        else{
+//         return CircularProgressIndicator();
+//        }
+//       },
+//     );
+//   }
+// }
